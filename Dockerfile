@@ -1,4 +1,4 @@
-FROM node:23.3-bookworm
+FROM node:22.11-bookworm
 WORKDIR /usr/src/api
 COPY . /usr/src/api/
 RUN yarn

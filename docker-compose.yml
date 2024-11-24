@@ -1,12 +1,16 @@
 services:
-  express-api: #image名
+  api: #image名
     container_name: fpb-wwwexp
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - .:/usr/src/api # ローカルをコンテナ内にマウント
+      - .:/usr/src/api
+      - api_node_modules:/usr/src/api/node_modules
     command: sh -c "yarn server"
     ports:
       - "3000:3000"
     stdin_open: true
+  
+volumes:
+  api_node_modules:
