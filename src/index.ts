@@ -2,8 +2,8 @@ import express from "express";
 const app: express.Express = express();
 const port = 3003;
 
-app.get("/", (_req, res) => {
-  res.status(200).send({ i: 3, j: 19 });
+app.get("/v1/dice/", (_req, res) => {
+  res.status(200).send({ value: Math.floor(Math.random() * 6) + 1 });
 });
 
 app.listen(port, () => {
