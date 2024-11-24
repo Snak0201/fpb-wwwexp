@@ -1,5 +1,5 @@
 FROM node:22.11-bookworm
-WORKDIR /usr/src/api
-COPY . /usr/src/api/
+WORKDIR /api
+COPY . /api
 RUN yarn
 CMD ["yarn","server"]

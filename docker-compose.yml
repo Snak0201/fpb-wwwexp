@@ -5,8 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - .:/usr/src/api
-      - api_node_modules:/usr/src/api/node_modules
+      - .:/api
+      - api_node_modules:/api/node_modules
     command: sh -c "yarn server"
     ports:
       - "3000:3000"
