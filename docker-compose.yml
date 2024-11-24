@@ -9,7 +9,7 @@ services:
       - api_node_modules:/api/node_modules
     command: sh -c "yarn server"
     ports:
-      - "3000:3000"
+      - "3002:3002"
     stdin_open: true
   
 volumes:
