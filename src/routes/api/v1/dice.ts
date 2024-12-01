@@ -2,7 +2,19 @@ import { Router } from "express";
 
 const router = Router();
 
-// 1~mのサイコロをn個振る
+/**
+ *
+ * @param n サイコロの数
+ * @param m サイコロの上限値
+ * @returns サイコロの出目の配列 [1,2,...]
+ */
+const diceValues = (n: number, m: number) => {
+  return Array.from({ length: n }, () => Math.floor(Math.random() * m) + 1);
+};
+
+/**
+ * /api/v1/dice/ 1~mのサイコロをn個振る
+ */
 router.post("/", (req, res) => {
   const n = parseInt(String(req.body.n), 10);
   const m = parseInt(String(req.body.m), 10);
@@ -19,15 +31,12 @@ router.post("/", (req, res) => {
     });
   }
 
-  const values = Array.from(
-    { length: n },
-    () => Math.floor(Math.random() * m) + 1
-  );
-
-  res.status(200).send({ values: values });
+  res.status(200).send({ values: diceValues(n, m) });
 });
 
-// 1~6のサイコロをn個振る
+/**
+ * /api/v1/dice/cube/ 1~6のサイコロをn個振る
+ */
 router.get("/cube/", (req, res) => {
   const n = parseInt(String(req.query.n), 10);
 
@@ -37,12 +46,7 @@ router.get("/cube/", (req, res) => {
     });
   }
 
-  const values = Array.from(
-    { length: n },
-    () => Math.floor(Math.random() * 6) + 1
-  );
-
-  res.status(200).send({ values: values });
+  res.status(200).send({ values: diceValues(n, 6) });
 });
 
 module.exports = router;
