@@ -2,5 +2,13 @@
   "name": "Hoshinonaka Government Express API Server",
   "service": "api",
   "workspaceFolder": "/api",
-  "dockerComposeFile": "../docker-compose.yml"
+  "dockerComposeFile": "../docker-compose.yml",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+          "mhutchie.git-graph",
+          "esbenp.prettier-vscode"
+      ]
+    }
+  }
 }
